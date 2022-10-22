@@ -21,16 +21,6 @@
                 <p>NAVIGATION</p>
             </div>
             <div class="navItems">
-                <div id="nav-newCollection" class="navItem" style="margin-bottom: 22px;">
-                    <div class="left">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M1.82874 3.0525C1.84749 2.56789 2.05328 2.1094 2.4029 1.7733C2.75252 1.4372 3.21877 1.24964 3.70374 1.25H5.04749C5.53202 1.25028 5.99764 1.43813 6.34672 1.77417C6.69581 2.1102 6.90125 2.56832 6.91999 3.0525L7.44999 16.8025C7.45975 17.0548 7.41847 17.3064 7.32862 17.5423C7.23877 17.7782 7.10221 17.9936 6.92712 18.1754C6.75203 18.3573 6.54201 18.5019 6.30967 18.6007C6.07732 18.6994 5.82744 18.7502 5.57499 18.75H3.17499C2.92254 18.7502 2.67265 18.6994 2.4403 18.6007C2.20796 18.5019 1.99795 18.3573 1.82286 18.1754C1.64776 17.9936 1.5112 17.7782 1.42135 17.5423C1.33151 17.3064 1.29022 17.0548 1.29999 16.8025L1.82874 3.0525ZM8.07624 18.75C8.49124 18.1963 8.72624 17.5025 8.69874 16.755L8.38249 8.5225L12.7412 5.13125C12.8336 5.05939 12.9443 5.01491 13.0607 5.00288C13.1772 4.99085 13.2946 5.01175 13.3998 5.0632C13.5049 5.11466 13.5934 5.1946 13.6554 5.29392C13.7173 5.39324 13.7501 5.50796 13.75 5.625V8.6225L17.7125 5.155C17.8028 5.07566 17.9141 5.02404 18.033 5.00635C18.1519 4.98865 18.2734 5.00563 18.3829 5.05523C18.4924 5.10484 18.5853 5.18498 18.6504 5.28603C18.7155 5.38709 18.7501 5.50478 18.75 5.625V16.875C18.75 17.3723 18.5524 17.8492 18.2008 18.2008C17.8492 18.5525 17.3723 18.75 16.875 18.75H8.07499H8.07624ZM16.25 17.5V13.125C16.25 12.9592 16.1841 12.8003 16.0669 12.6831C15.9497 12.5658 15.7907 12.5 15.625 12.5H11.875C11.7092 12.5 11.5503 12.5658 11.433 12.6831C11.3158 12.8003 11.25 12.9592 11.25 13.125V17.5H16.25Z"
-                                fill="#36404B" fill-opacity="0.75" />
-                        </svg>
-                    </div>
-                    <p>New Collection</p>
-                </div>
                 <div id="nav-myCollections" class="navItem active">
                     <div class="leftIndicator">
 
@@ -113,7 +103,7 @@
 
         <div id="panel__space" class="panel-myCollections">
             <div id="panel__title">
-                <h1>My Collections</h1>
+                <h1>Collections Assigned to Me</h1>
                 <p>As of October, 2022</p>
             </div>
             <table width="95%">
@@ -125,7 +115,7 @@
                     <th>Date</th>
                     <th>Weight</th>
                     <th>Assigned to</th>
-                    <th style="width: 0px;">Status</th>
+                    <th style="width: 150px;">Actions</th>
                 </tr>
                 <!-- <% for(var i = 0; i < e.length; i++){ %> -->
                 <tr>
@@ -136,37 +126,13 @@
                     <td> 29/8/22 </td>
                     <td> 3 kg</td>
                     <td> GarbageBusters Corp</td>
-                    <td> Not collected!</td>
+                    <td> <button class="button-view">Mark as Done</button></td>
                     <!-- <td> <a href="/" class="button-view">View</a></td> -->
                 </tr>
                 <!-- <% } %> -->
             </table>
         </div>
-        <div id="panel__space" class="panel-newCollection">
-            <div id="panel__title">
-                <h1>New Collection</h1>
-                <p>As of October, 2022</p>
-            </div>
-            <div class="form-wrapper" style="padding-top: 2rem">
-                <div class="form">
-                    <form action="">
-                        <div class="form-field-key">Title</div>
-                        <input class="title" type="text" name="title" placeholder="the title goes here">
-                        <br>
-                        <div class="form-field-key">Type / Nature</div>
-                        <input class="nature" type="text" name="type / nature" placeholder="what's the nature of your collection?">
-                        <br>
-                        <div class="form-field-key">Weight</div>
-                        <input class="weight" type="number" name="weight" placeholder="how heavy is it?">
-                        <br>
-                        <div class="form-field-key">Location</div>
-                        <input class="location" type="text" name="location" placeholder="where is it?">
-                        <br>
-                        <submit class="button-view" style='height: 2.5em; width: 13em; text-align: center;'>Let's go!</submit>
-                    </form>
-                </div>
-            </div>
-        </div>
+        
         <div id="panel__space" class="panel-community">
             <div id="panel__title">
                 <h1>Community Contributions</h1>
@@ -210,29 +176,29 @@
     <!-- script for in page navigation -->
     <script>
 
-        const NAVnewCollection = document.getElementById('nav-newCollection')
+        //const NAVnewCollection = document.getElementById('nav-newCollection')
         const NAVmyCollections = document.getElementById('nav-myCollections')
         const NAVcommunity = document.getElementById('nav-community')
 
         const myCollections = document.getElementsByClassName('panel-myCollections')[0]
-        const newCollection = document.getElementsByClassName('panel-newCollection')[0]
+        //const newCollection = document.getElementsByClassName('panel-newCollection')[0]
         const community = document.getElementsByClassName('panel-community')[0]
 
         loadMyCollections = (e) => {
             myCollections.style.display = 'block'
-            newCollection.style.display = 'none'
+          //  newCollection.style.display = 'none'
             community.style.display = 'none'
             myCollections.classList.toggle('active')
         }
-        loadNewCollection = (e) => {
-            myCollections.style.display = 'none'
-            newCollection.style.display = 'block'
-            community.style.display = 'none'
-            newCollection.classList.toggle('active')
-        }
+        //loadNewCollection = (e) => {
+        //    myCollections.style.display = 'none'
+        //    newCollection.style.display = 'block'
+        //    community.style.display = 'none'
+        //    newCollection.classList.toggle('active')
+        //}
         loadCommunity = (e) => {
             myCollections.style.display = 'none'
-            newCollection.style.display = 'none'
+            //newCollection.style.display = 'none'
             community.style.display = 'block'
             community.classList.toggle('active')
         }
@@ -242,7 +208,7 @@
 
             NAVmyCollections.classList.add('active')
             NAVcommunity.classList.remove('active')
-            NAVnewCollection.classList.remove('active')
+            //NAVnewCollection.classList.remove('active')
         })
 
         NAVcommunity.addEventListener('click', (e) => {
@@ -250,16 +216,16 @@
 
             NAVmyCollections.classList.remove('active')
             NAVcommunity.classList.add('active')
-            NAVnewCollection.classList.remove('active')
+            //NAVnewCollection.classList.remove('active')
         })
 
-        NAVnewCollection.addEventListener('click', (e) => {
-            loadNewCollection(e)
-
-            NAVmyCollections.classList.remove('active')
-            NAVcommunity.classList.remove('active')
-            NAVnewCollection.classList.add('active')
-        })
+        //NAVnewCollection.addEventListener('click', (e) => {
+        //    loadNewCollection(e)
+//
+        //    NAVmyCollections.classList.remove('active')
+        //    NAVcommunity.classList.remove('active')
+        //    NAVnewCollection.classList.add('active')
+        //})
 
 
 
