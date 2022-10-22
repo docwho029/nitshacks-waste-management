@@ -12,12 +12,70 @@
         "type": "corporation",
         "data": {
             "myEntries": [],
-            "assignedEntries": []
+            "assignedEntries": [
+                {
+                    "title": "Banana Peels",
+                    "id": 1,
+                    "location": "Mirzapur",
+                    "type": "Biodegradable",
+                    "weight": "0.6",
+                    "date": "22-10-2022",
+                    "applicant": "Saptarshi",
+                    "assigned": true,
+                    "corporation": "Shuvam",
+                    "completed": true
+                },
+                {
+                    "title": "Banana Peels",
+                    "id": 1,
+                    "location": "Mirzapur",
+                    "type": "Biodegradable",
+                    "weight": "0.6",
+                    "date": "22-10-2022",
+                    "applicant": "Saptarshi",
+                    "assigned": true,
+                    "corporation": "Shuvam",
+                    "completed": false
+                }
+            ]
         }
     },
     "Saptarshi": {
         "password": "Welcome123",
         "type": "resident",
+        "data": {
+            "myEntries": [
+                {
+                    "title": "Banana Peels",
+                    "id": 1,
+                    "location": "Mirzapur",
+                    "type": "Biodegradable",
+                    "weight": "0.6",
+                    "date": "22-10-2022",
+                    "applicant": "Saptarshi",
+                    "assigned": true,
+                    "corporation": "Shuvam",
+                    "completed": true
+                },
+                {
+                    "title": "Sugarcane",
+                    "id": 2,
+                    "location": "Kolkata",
+                    "type": "Biodegradable",
+                    "weight": "0.8",
+                    "date": "22-10-2022",
+                    "applicant": "Saptarshi",
+                    "assigned": false,
+                    "corporation": null,
+                    "completed": false
+                }
+            ],
+            "assignedEntries": []
+        }
+    },
+    "Pritish": {
+        "password": "Welcome123",
+        "type": "corporation",
         "data": {
             "myEntries": [],
             "assignedEntries": []
