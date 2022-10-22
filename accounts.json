@@ -1,0 +1,26 @@
+{
+    "Swapnil": {
+        "password": "Welcome123",
+        "type": "manager",
+        "data": {
+            "myEntries": [],
+            "assignedEntries": []
+        }
+    },
+    "Shuvam": {
+        "password": "Welcome123",
+        "type": "corporation",
+        "data": {
+            "myEntries": [],
+            "assignedEntries": []
+        }
+    },
+    "Saptarshi": {
+        "password": "Welcome123",
+        "type": "resident",
+        "data": {
+            "myEntries": [],
+            "assignedEntries": []
+        }
+    }
+}
