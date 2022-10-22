@@ -93,7 +93,7 @@ app.post('/entry', (req, res) => {
     accounts = JSON.parse(fs.readFileSync('./accounts.json'));
 
     if (name in accounts) {
-        if (accounts[name]['password'] == password && type == 'resident') {
+        if (accounts[name]['password'] == password && accounts[name]['type'] == 'resident') {
             entries = JSON.parse(fs.readFileSync('./entries.json'));
 
             //Creating the new entry
@@ -113,7 +113,7 @@ app.post('/entry', (req, res) => {
             //Updating and writing into database
             entries.push(entry);
             accounts[name][myEntries].push(entry);
-        } else if (type != 'resident') {
+        } else if (accounts[name]['type'] != 'resident') {
             res.send('Error, must be a resident to create an entry');
         } else {
             res.send('Error, invalid password');
