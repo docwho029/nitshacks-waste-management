@@ -112,7 +112,11 @@ app.post('/entry', (req, res) => {
 
             //Updating and writing into database
             entries.push(entry);
-            accounts[name][myEntries].push(entry);
+            accounts[name]["data"]["myEntries"].push(entry);
+            fs.writeFileSync('./entries.json', JSON.stringify(entries, null, 4));
+            fs.writeFileSync('./accounts.json', JSON.stringify(accounts, null, 4));
+
+            res.send("Success, entry created")
         } else if (accounts[name]['type'] != 'resident') {
             res.send('Error, must be a resident to create an entry');
         } else {
@@ -126,13 +130,21 @@ app.post('/entry', (req, res) => {
 // Mark Entry complete
 app.post("/complete", function (req, res) {
     const { name, password, type } = req.cookies;
-    if (type === "Corporation") {
+    accounts = JSON.parse(fs.readFileSync('./accounts.json'));
+    entries = JSON.parse(fs.readFileSync('./entries.json'));
+
+    if (accounts[name]["type"] == "corporation" && accounts[name]["password"] == password) {
         entry_id = req.body.id;
         for (var i = 0; i < entries.length; i++) {
             //looping over all entries to find the one with matching id
-            if (entries[i].id === entry_id) {
-                entries[i].completed = true;
-                applicant = entries[i].applicant;
+            if (entries[i]["id"] == entry_id && entries[i]["corporation"] != name) {
+                res.send("Error, you are not assigned to this entry");
+                return;
+            }
+
+            if (entries[i]["id"] == entry_id) {
+                entries[i]["completed"] = true;
+                applicant = entries[i]["applicant"];
                 break;
             }
         }
@@ -143,22 +155,23 @@ app.post("/complete", function (req, res) {
         //looping over corporations entries to find the one with matching id
         for (var i = 0; i < corp_assignedEntries.length; i++) {
             if (corp_assignedEntries[i].id === entry_id) {
-                corp_assignedEntries[i].completed = true;
+                accounts[name]["data"]["assignedEntries"][i].completed = true;
                 break;
             }
         }
 
         //looping over resident's entries to find the one with matching id
         for (var i = 0; i < resident_myEntries.length; i++) {
-            if (resident_myEntries[i].id === entry_id) {
-                resident_myEntries[i].completed = true;
+            if (resident_myEntries[i].id == entry_id) {
+                accounts[applicant]["data"]["myEntries"][i].completed = true;
                 break;
             }
         }
 
+        fs.writeFileSync('./entries.json', JSON.stringify(entries, null, 4));
+        fs.writeFileSync('./accounts.json', JSON.stringify(accounts, null, 4));
         res.send("Success, Entry marked complete");
-    }
-    else {
+    } else {
         res.send("Error, Invalid Request");
     }
 
@@ -168,12 +181,20 @@ app.post("/complete", function (req, res) {
 app.post("/assign", function (req, res) {
     const { name, password, type } = req.cookies;
 
-    if (type === "management") {
+    accounts = JSON.parse(fs.readFileSync('./accounts.json'));
+    entries = JSON.parse(fs.readFileSync('./entries.json'));
+
+    if (accounts[name]["type"] == "manager" && accounts[name]["password"] == password) {
         username = req.body.name;
         entry_id = req.body.id;
 
+        if (!(username in accounts) || accounts[username]["type"] != "corporation") {
+            res.send("Error, Cannot assign to this user");
+            return;
+        }
+
         for (var i = 0; i < entries.length; i++) {
-            if (entries[i].id === entry_id) {
+            if (entries[i].id == entry_id) {
                 entries[i].assigned = true;
                 entries[i]["corporation"] = username;
 
@@ -183,15 +204,17 @@ app.post("/assign", function (req, res) {
             }
         }
 
-        accounts.username["data"].assignedEntries.push(entry);
+        accounts[username]["data"].assignedEntries.push(entry);
 
-        for (let i = 0; i < accounts.resident.data['myEntries'].length; i++) {
-            if (accounts.resident.data['myEntries'][i].id == entry_id) {
-                accounts.resident.data['myEntries'][i].assigned = true;
-                accounts.resident.data['myEntries'][i]["corporation"] = username;
+        for (let i = 0; i < accounts[resident].data['myEntries'].length; i++) {
+            if (accounts[resident].data['myEntries'][i].id == entry_id) {
+                accounts[resident].data['myEntries'][i] = entry;
                 break;
             }
         }
+
+        fs.writeFileSync('./entries.json', JSON.stringify(entries, null, 4));
+        fs.writeFileSync('./accounts.json', JSON.stringify(accounts, null, 4));
 
         res.send("Success, Entry assigned successfully");
     }
@@ -219,15 +242,39 @@ app.get('/', (req, res) => {
 });
 
 app.get('/resident', (req, res) => {
-    res.sendFile('./pages/resident/index.html');
+    const { name, password, type } = req.cookies;
+    if (!name || !password || !type) {
+        res.cookie("name", "");
+        res.cookie("password", "");
+        res.cookie("type", "");
+        res.redirect("http://localhost:8080/login");
+    } else {
+        res.sendFile('./pages/resident/index.html');
+    }
 });
 
 app.get('/manager', (req, res) => {
-    res.sendFile('./pages/manager/index.html');
+    const { name, password, type } = req.cookies;
+    if (!name || !password || !type) {
+        res.cookie("name", "");
+        res.cookie("password", "");
+        res.cookie("type", "");
+        res.redirect("http://localhost:8080/login");
+    } else {
+        res.sendFile('./pages/manager/index.html');
+    }
 });
 
 app.get('/corporation', (req, res) => {
-    res.sendFile('./pages/corporation/index.html');
+    const { name, password, type } = req.cookies;
+    if (!name || !password || !type) {
+        res.cookie("name", "");
+        res.cookie("password", "");
+        res.cookie("type", "");
+        res.redirect("http://localhost:8080/login");
+    } else {
+        res.sendFile('./pages/corporation/index.html');
+    }
 });
 
 app.get('/resource/:path', (req, res) => {
