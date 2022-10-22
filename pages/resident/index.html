@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Resident Page</title>
+
+    <link rel="stylesheet" href="http://locahost:8080/resource/resident/style.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="navigation">
+            <div class="logo">
+                <img src="./assets/img/logo.png" alt="">
+            </div>
+            <div class="navTitle">
+                <p>NAVIGATION</p>
+            </div>
+            <div class="navItems" >
+                <div id="nav-newCollection" class="navItem" style="margin-bottom: 22px;">
+                    <div class="left">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1.82874 3.0525C1.84749 2.56789 2.05328 2.1094 2.4029 1.7733C2.75252 1.4372 3.21877 1.24964 3.70374 1.25H5.04749C5.53202 1.25028 5.99764 1.43813 6.34672 1.77417C6.69581 2.1102 6.90125 2.56832 6.91999 3.0525L7.44999 16.8025C7.45975 17.0548 7.41847 17.3064 7.32862 17.5423C7.23877 17.7782 7.10221 17.9936 6.92712 18.1754C6.75203 18.3573 6.54201 18.5019 6.30967 18.6007C6.07732 18.6994 5.82744 18.7502 5.57499 18.75H3.17499C2.92254 18.7502 2.67265 18.6994 2.4403 18.6007C2.20796 18.5019 1.99795 18.3573 1.82286 18.1754C1.64776 17.9936 1.5112 17.7782 1.42135 17.5423C1.33151 17.3064 1.29022 17.0548 1.29999 16.8025L1.82874 3.0525ZM8.07624 18.75C8.49124 18.1963 8.72624 17.5025 8.69874 16.755L8.38249 8.5225L12.7412 5.13125C12.8336 5.05939 12.9443 5.01491 13.0607 5.00288C13.1772 4.99085 13.2946 5.01175 13.3998 5.0632C13.5049 5.11466 13.5934 5.1946 13.6554 5.29392C13.7173 5.39324 13.7501 5.50796 13.75 5.625V8.6225L17.7125 5.155C17.8028 5.07566 17.9141 5.02404 18.033 5.00635C18.1519 4.98865 18.2734 5.00563 18.3829 5.05523C18.4924 5.10484 18.5853 5.18498 18.6504 5.28603C18.7155 5.38709 18.7501 5.50478 18.75 5.625V16.875C18.75 17.3723 18.5524 17.8492 18.2008 18.2008C17.8492 18.5525 17.3723 18.75 16.875 18.75H8.07499H8.07624ZM16.25 17.5V13.125C16.25 12.9592 16.1841 12.8003 16.0669 12.6831C15.9497 12.5658 15.7907 12.5 15.625 12.5H11.875C11.7092 12.5 11.5503 12.5658 11.433 12.6831C11.3158 12.8003 11.25 12.9592 11.25 13.125V17.5H16.25Z"
+                                fill="#36404B" fill-opacity="0.75" />
+                        </svg>
+                    </div>
+                    <p>New Collection</p>
+                </div>
+                <div id="nav-myCollections" class="navItem active" >
+                    <div class="leftIndicator">
+
+                    </div>
+                    <div class="left">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.6667 1.66675H3.33332C2.49999 1.66675 1.66666 2.41675 1.66666 3.33341V5.84175C1.66666 6.44175 2.02499 6.95842 2.49999 7.25008V16.6667C2.49999 17.5834 3.41666 18.3334 4.16666 18.3334H15.8333C16.5833 18.3334 17.5 17.5834 17.5 16.6667V7.25008C17.975 6.95842 18.3333 6.44175 18.3333 5.84175V3.33341C18.3333 2.41675 17.5 1.66675 16.6667 1.66675ZM15.8333 16.6667H4.16666V7.50008H15.8333V16.6667ZM16.6667 5.83342H3.33332V3.33341H16.6667V5.83342Z"
+                                fill="#36404B" fill-opacity="0.75" />
+                            <path d="M7.5 10H12.5V11.6667H7.5V10Z" fill="#36404B" fill-opacity="0.75" />
+                        </svg>
+
+                    </div>
+                    <p>My Collections</p>
+                </div>
+                <div id="nav-community" class="navItem">
+                    <div class="left">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.33333 9.86332H6.80167C6.07613 9.8371 5.35294 9.96027 4.67699 10.2252C4.00104 10.4901 3.38674 10.8911 2.87222 11.4033L2.72556 11.5744V16.6344H5.21889V13.7622L5.555 13.3833L5.70778 13.2061C6.5034 12.3887 7.49392 11.7873 8.58611 11.4583C8.03929 11.0422 7.60802 10.4932 7.33333 9.86332Z"
+                                fill="#36404B" fill-opacity="0.75" />
+                            <path
+                                d="M19.1522 11.385C18.6377 10.8728 18.0234 10.4718 17.3475 10.2069C16.6715 9.94196 15.9483 9.81879 15.2228 9.84501C15.0003 9.84564 14.7779 9.85788 14.5567 9.88168C14.2768 10.4726 13.8573 10.9864 13.3344 11.3789C14.5004 11.7015 15.5567 12.3352 16.39 13.2122L16.5428 13.3833L16.8728 13.7622V16.6406H19.2806V11.5561L19.1522 11.385Z"
+                                fill="#36404B" fill-opacity="0.75" />
+                            <path
+                                d="M6.78333 8.67171H6.97277C6.88475 7.91591 7.01736 7.15079 7.35461 6.46871C7.69186 5.78662 8.21932 5.21673 8.87333 4.82782C8.63626 4.46565 8.30919 4.17125 7.92415 3.97346C7.53912 3.77566 7.10931 3.68126 6.67683 3.69948C6.24435 3.71771 5.82401 3.84794 5.45698 4.07742C5.08995 4.30691 4.78881 4.62778 4.58305 5.00862C4.37729 5.38945 4.27397 5.8172 4.28319 6.24997C4.29241 6.68274 4.41387 7.10569 4.63567 7.47742C4.85747 7.84914 5.17201 8.15689 5.54848 8.37053C5.92496 8.58417 6.35046 8.69637 6.78333 8.69615V8.67171Z"
+                                fill="#36404B" fill-opacity="0.75" />
+                            <path
+                                d="M14.9294 8.21329C14.9369 8.35374 14.9369 8.4945 14.9294 8.63495C15.0467 8.65354 15.1652 8.66376 15.2839 8.66551H15.4C15.831 8.64253 16.2486 8.50835 16.6123 8.27604C16.9761 8.04372 17.2734 7.72119 17.4755 7.33984C17.6775 6.95848 17.7774 6.53131 17.7654 6.0999C17.7533 5.66849 17.6298 5.24755 17.4068 4.87806C17.1838 4.50857 16.8689 4.20312 16.4928 3.99144C16.1167 3.77977 15.6922 3.66909 15.2606 3.67017C14.829 3.67126 14.4051 3.78408 14.0301 3.99764C13.655 4.2112 13.3417 4.51823 13.1205 4.88884C13.6737 5.24997 14.1285 5.74275 14.4442 6.32298C14.7599 6.90321 14.9266 7.55273 14.9294 8.21329Z"
+                                fill="#36404B" fill-opacity="0.75" />
+                            <path
+                                d="M10.9206 10.9511C12.4292 10.9511 13.6522 9.72812 13.6522 8.21946C13.6522 6.7108 12.4292 5.48779 10.9206 5.48779C9.41191 5.48779 8.1889 6.7108 8.1889 8.21946C8.1889 9.72812 9.41191 10.9511 10.9206 10.9511Z"
+                                fill="#36404B" fill-opacity="0.75" />
+                            <path
+                                d="M11.0672 12.4056C10.2692 12.3734 9.4728 12.503 8.72609 12.7865C7.97939 13.0701 7.29776 13.5018 6.72224 14.0556L6.56946 14.2267V18.0951C6.57184 18.2211 6.59903 18.3454 6.64946 18.4609C6.69989 18.5764 6.77259 18.6808 6.86339 18.7682C6.95419 18.8556 7.06131 18.9242 7.17865 18.9702C7.29599 19.0162 7.42123 19.0386 7.54724 19.0362H14.5689C14.6949 19.0386 14.8202 19.0162 14.9375 18.9702C15.0548 18.9242 15.162 18.8556 15.2528 18.7682C15.3436 18.6808 15.4162 18.5764 15.4667 18.4609C15.5171 18.3454 15.5443 18.2211 15.5467 18.0951V14.239L15.4 14.0556C14.8282 13.5001 14.149 13.0672 13.4039 12.7834C12.6589 12.4997 11.8637 12.3711 11.0672 12.4056Z"
+                                fill="#36404B" fill-opacity="0.75" />
+                        </svg>
+                    </div>
+                    <p>Community</p>
+                </div>
+            </div>
+            <div class="--row">
+                <div id="seperator__line">
+
+                </div>
+            </div>
+            <div class="navTitle" >
+                <p style="margin-top: 30px;">USER OPTIONS</p>
+            </div>
+            <div class="navItems">
+                <div class="navItem" onclick="darkwoohoo()">
+                    <div class="left">
+                        <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.7915 10.8851C17.4589 10.8851 18 10.3427 18 9.6735C18 9.00435 17.4589 8.4619 16.7915 8.4619C16.1241 8.4619 15.583 9.00435 15.583 9.6735C15.583 10.3427 16.1241 10.8851 16.7915 10.8851ZM2.58426 14.7482C0.581954 11.2712 1.77021 6.82517 5.23831 4.81772C5.46707 4.6853 5.69987 4.56686 5.93574 4.46211C5.57132 6.82981 5.97893 9.33475 7.26693 11.5714C8.72529 14.1038 11.0445 15.8278 13.6383 16.5867C13.2895 16.8918 12.906 17.1679 12.4893 17.4091C9.0212 19.4165 4.58657 18.2252 2.58426 14.7482ZM4.43264 3.41868C0.193858 5.87223 -1.25846 11.3063 1.18881 15.556C3.63607 19.8056 9.05618 21.2617 13.295 18.8081C14.3029 18.2247 15.1547 17.4714 15.8337 16.6046C16.2153 16.1175 15.9305 15.3987 15.3195 15.3069C12.6221 14.9016 10.1308 13.3136 8.66239 10.7636C7.33842 8.46458 7.10579 5.8354 7.80432 3.47518C7.98018 2.88095 7.45052 2.31776 6.84851 2.45888C6.01971 2.65317 5.20585 2.97111 4.43264 3.41868Z" fill="#36404B" fill-opacity="0.75"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 0C13.0858 0 12.75 0.335786 12.75 0.75V1.75H11.75C11.3358 1.75 11 2.08579 11 2.5C11 2.91421 11.3358 3.25 11.75 3.25H12.75V4.25C12.75 4.66421 13.0858 5 13.5 5C13.9142 5 14.25 4.66421 14.25 4.25V3.25H15.25C15.6642 3.25 16 2.91421 16 2.5C16 2.08579 15.6642 1.75 15.25 1.75H14.25V0.75C14.25 0.335786 13.9142 0 13.5 0Z" fill="#36404B" fill-opacity="0.75"/>
+                            </svg>
+
+                    </div>
+                    <p>Dark Mode</p>
+                </div>
+                <div class="navItem">
+                    <div class="left">
+                        <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.74743 14.6585C4.11111 15.0741 4.74287 15.1163 5.15851 14.7526C5.57414 14.3889 5.61626 13.7571 5.25258 13.3415L3.20377 11H13C13.5523 11 14 10.5523 14 10C14 9.44771 13.5523 9 13 9H3.20377L5.25258 6.6585C5.61626 6.24287 5.57414 5.6111 5.15851 5.24742C4.74287 4.88374 4.11111 4.92586 3.74743 5.34149L0.247423 9.34149C-0.0824745 9.71852 -0.0824745 10.2815 0.247423 10.6585L3.74743 14.6585ZM13 2C12.4477 2 12 1.55228 12 1C12 0.447715 12.4477 -2.41411e-08 13 0L16 1.31134e-07C17.1046 1.79416e-07 18 0.895431 18 2V18C18 19.1046 17.1046 20 16 20H13C12.4477 20 12 19.5523 12 19C12 18.4477 12.4477 18 13 18H16V2L13 2Z" fill="#36404B" fill-opacity="0.75"/>
+                            </svg>
+
+
+                    </div>
+                    <p>Log out</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="panel__space" class="panel-myCollections">
+            <div id="panel__title">
+                <h1>My Collections</h1>
+                <p>As of October, 2022</p>
+            </div>
+            <table width="95%">
+                <tr id="one">
+                    <th>Title</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th style="margin-right: 30%;"></th>
+                    <th>Date</th>
+                    <th>Weight</th>
+                    <th>Assigned to</th>
+                    <th style="width: 0px;">Status</th>
+                </tr>
+                <!-- <% for(var i = 0; i < e.length; i++){ %> -->
+                <tr>
+                    <td> Banana Peels </td>
+                    <td> 48, Connaught Street, Kolkata</td>
+                    <td> Biodegradable </td>
+                    <td> </td>
+                    <td> 29/8/22 </td>
+                    <td> 3 kg</td>
+                    <td> GarbageBusters Corp</td>
+                    <td> Not collected!</td>
+                    <!-- <td> <a href="/" class="button-view">View</a></td> -->
+                </tr>
+                <!-- <% } %> -->
+            </table> 
+        </div>
+        <div id="panel__space" class="panel-newCollection">
+            <div id="panel__title">
+                <h1>New Collections</h1>
+                <p>As of October, 2022</p>
+            </div>
+            <table width="95%">
+                <tr id="one">
+                    <th>Title</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th style="margin-right: 30%;"></th>
+                    <th>Date</th>
+                    <th>Weight</th>
+                    <th>Assigned to</th>
+                    <th style="width: 0px;">Status</th>
+                </tr>
+                <!-- <% for(var i = 0; i < e.length; i++){ %> -->
+                <tr>
+                    <td> Banana Peels </td>
+                    <td> 48, Connaught Street, Kolkata</td>
+                    <td> Biodegradable </td>
+                    <td> </td>
+                    <td> 29/8/22 </td>
+                    <td> 3 kg</td>
+                    <td> GarbageBusters Corp</td>
+                    <td> Not collected!</td>
+                    <!-- <td> <a href="/" class="button-view">View</a></td> -->
+                </tr>
+                <!-- <% } %> -->
+            </table> 
+        </div>
+        <div id="panel__space" class="panel-community">
+            <div id="panel__title">
+                <h1>Community</h1>
+                <p>As of October, 2022</p>
+            </div>
+            <table width="95%">
+                <tr id="one">
+                    <th>Title</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th style="margin-right: 30%;"></th>
+                    <th>Date</th>
+                    <th>Weight</th>
+                    <th>Assigned to</th>
+                    <th style="width: 0px;">Status</th>
+                </tr>
+                <!-- <% for(var i = 0; i < e.length; i++){ %> -->
+                <tr>
+                    <td> Banana Peels </td>
+                    <td> 48, Connaught Street, Kolkata</td>
+                    <td> Biodegradable </td>
+                    <td> </td>
+                    <td> 29/8/22 </td>
+                    <td> 3 kg</td>
+                    <td> GarbageBusters Corp</td>
+                    <td> Not collected!</td>
+                    <!-- <td> <a href="/" class="button-view">View</a></td> -->
+                </tr>
+                <!-- <% } %> -->
+            </table> 
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        const darkmode =  new Darkmode();
+
+        function darkwoohoo() {
+            darkmode.toggle();
+        }
+    </script>
+
+    <!-- script for in page navigation -->
+    <script>
+
+        const NAVnewCollection = document.getElementById('nav-newCollection')
+        const NAVmyCollections = document.getElementById('nav-myCollections')
+        const NAVcommunity   = document.getElementById('nav-community')
+
+        const myCollections = document.getElementsByClassName('panel-myCollections')[0]
+        const newCollection = document.getElementsByClassName('panel-newCollection')[0]
+        const community     = document.getElementsByClassName('panel-community')[0]  
+
+        loadMyCollections = (e) => {
+            myCollections.style.display = 'block'
+            newCollection.style.display = 'none'
+            community.style.display = 'none' 
+            myCollections.classList.toggle('active')
+        }
+        loadNewCollection = (e) => {
+            myCollections.style.display = 'none'
+            newCollection.style.display = 'block'
+            community.style.display = 'none'
+            newCollection.classList.toggle('active') 
+        }
+        loadCommunity = (e) => {
+            myCollections.style.display = 'none'
+            newCollection.style.display = 'none'
+            community.style.display = 'block'
+            community.classList.toggle('active') 
+        }
+
+        NAVmyCollections.addEventListener('click', (e)=> {
+            loadMyCollections(e)
+
+            NAVmyCollections.classList.add('active')
+            NAVcommunity.classList.remove('active')
+            NAVnewCollection.classList.remove('active')
+        })
+        
+        NAVcommunity.addEventListener('click', (e)=> {
+            loadCommunity(e)
+ 
+            NAVmyCollections.classList.remove('active')
+            NAVcommunity.classList.add('active')
+            NAVnewCollection.classList.remove('active')
+        })
+
+        NAVnewCollection.addEventListener('click', (e) => {
+            loadNewCollection(e)
+
+            NAVmyCollections.classList.remove('active')
+            NAVcommunity.classList.remove('active')
+            NAVnewCollection.classList.add('active')
+        })
+        
+        
+        
+        loadMyCollections()
+    </script>
+</body>
+</html>

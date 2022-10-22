@@ -1,6 +1,6 @@
 function getMyEntries (username) {
     fetch("http://localhost:8080/data", {
-        method: 'POST',
+        method: 'GET',
         body: {
           "name": username
         } 
