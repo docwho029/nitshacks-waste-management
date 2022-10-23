@@ -7,13 +7,15 @@
     
     <title>Login | Alohomora</title>
 
-    <link rel="icon" href="../assets/icon.png">
-    <!-- <link rel="stylesheet" href="http://locahost:8080/resource/login/style.css"> -->
+    <link rel="icon" href="http://localhost:8080/resource/assets/logo.png">
+    <link rel="stylesheet" href="http://localhost:8080/resource/login/style.css">
     <link rel="stylesheet" href="./style.css">
+
+    <script src="http://localhost:8080/resource/login/script.js"></script>
 </head>
 <body>
     <div class="nav-bar">
-        <img src="../assets/logobutdark.png" alt="">
+        <img src="http://localhost:8080/resource/assets/logobutdark.png" alt="">
     </div>
     <div class="login-box">
         <div class="heading">
@@ -21,9 +23,9 @@
         </div>
         <div class="form">
             <form action="">
-                <input class="username" type="text" name="username" placeholder="username">
-                <input class="password" type="password" name="password" placeholder="password">
-                <div class="submit-button">let's go</div>
+                <input class="username" id="username" type="text" name="username" placeholder="username">
+                <input class="password" id="password" type="password" name="password" placeholder="password">
+                <div class="submit-button" onclick="submit();">let's go</div>
             </form>
         </div>
     </div>

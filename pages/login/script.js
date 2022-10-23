@@ -1,15 +1,24 @@
 function login (username, password) {
     fetch("http://localhost:8080/login", {
         method: 'POST',
-        body: {
+        body: JSON.stringify({
           "name": username,
           "password": password
-        } 
-    }).then((response) => {
-        if (response.startswith('Error')) {
-            //code for invalid password or invalid user
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    }).then((response) => response.text()).then((response) => {
+        if (response.startsWith('Error')) {
+            alert('The username or password you entered are ivalid. Please try again.');
         } else {
-            //code if user successfully created
+            window.location.href = `http://localhost:8080/`;
         }
     });
+}
+
+function submit() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    login(username, password);
 }

@@ -60,9 +60,9 @@ app.post('/login', (req, res) => {
             //Sending a response
             res.send('Success. User logged in.');
         } else {
-            res.cookie('name', '');
-            res.cookie('password', '');
-            res.cookie('type', '');
+            res.clearCookie('name');
+            res.clearCookie('password');
+            res.clearCookie('type');
             res.send('Error, invalid password');
         }
     } else {
@@ -70,8 +70,11 @@ app.post('/login', (req, res) => {
     }
 });
 
-app.get('/data', function (req, res) {
+app.post('/data', function (req, res) {
     username = req.body.name;
+    if (username == "" || !username) {
+        username = req.cookies.name;
+    }
     accounts = JSON.parse(fs.readFileSync('./accounts.json'));
     data = accounts[username]["data"];
     /* specific data based on type
@@ -82,13 +85,17 @@ app.get('/data', function (req, res) {
       data = accounts.username["data"].assignedEntries;
     }
     */
-    res.send(data);
+    res.send(JSON.stringify(data));
 });
 
 //Creating a new entry
 app.post('/entry', (req, res) => {
+    console.log("recieved");
     const { name, password, type } = req.cookies;
     const { title, location, nature, weight, date } = req.body;
+
+    console.log(title, location, nature, weight, date);
+    console.log('recieved');
 
     accounts = JSON.parse(fs.readFileSync('./accounts.json'));
 
@@ -120,9 +127,15 @@ app.post('/entry', (req, res) => {
         } else if (accounts[name]['type'] != 'resident') {
             res.send('Error, must be a resident to create an entry');
         } else {
+            res.clearCookie('name');
+            res.clearCookie('password');
+            res.clearCookie('type');
             res.send('Error, invalid password');
         }
     } else {
+        res.clearCookie('name');
+        res.clearCookie('password');
+        res.clearCookie('type');
         res.send('Error, user does not exist');
     }
 });
@@ -130,6 +143,7 @@ app.post('/entry', (req, res) => {
 // Mark Entry complete
 app.post("/complete", function (req, res) {
     const { name, password, type } = req.cookies;
+
     accounts = JSON.parse(fs.readFileSync('./accounts.json'));
     entries = JSON.parse(fs.readFileSync('./entries.json'));
 
@@ -172,6 +186,9 @@ app.post("/complete", function (req, res) {
         fs.writeFileSync('./accounts.json', JSON.stringify(accounts, null, 4));
         res.send("Success, Entry marked complete");
     } else {
+        res.clearCookie('name');
+        res.clearCookie('password');
+        res.clearCookie('type');
         res.send("Error, Invalid Request");
     }
 
@@ -180,6 +197,8 @@ app.post("/complete", function (req, res) {
 // Assign entry
 app.post("/assign", function (req, res) {
     const { name, password, type } = req.cookies;
+
+    console.log("Recieved");
 
     accounts = JSON.parse(fs.readFileSync('./accounts.json'));
     entries = JSON.parse(fs.readFileSync('./entries.json'));
@@ -219,12 +238,26 @@ app.post("/assign", function (req, res) {
         res.send("Success, Entry assigned successfully");
     }
     else {
+        res.clearCookie('name');
+        res.clearCookie('password');
+        res.clearCookie('type');
         res.send("Error, Invalid request");
     }
 
 });
 
+app.get('/entries', (req, res) => {
+    const { name, password, type } = req.cookies;
+    entries = JSON.parse(fs.readFileSync('./entries.json'));
+    res.send(JSON.stringify(entries));
+});
 
+app.post('/logout', (req, res) => {
+    res.clearCookie('name');
+    res.clearCookie('password');
+    res.clearCookie('type');
+    res.send('Success, logged out');
+});
 
 /* ------------------------- Routes for pages --------------------------- */
 
@@ -235,53 +268,63 @@ app.get('/', (req, res) => {
         res.cookie("name", "");
         res.cookie("password", "");
         res.cookie("type", "");
-        res.redirect("http://localhost:8080/login");
+        res.redirect("http://localhost:8080/user/login");
     } else {
         res.redirect(`http://localhost:8080/${type}`);
     }
 });
 
+app.get('/user/signup', (req, res) => {
+    res.sendFile(__dirname + '/pages/signup/index.html');
+});
+
+app.get('/user/login', (req, res) => {
+    res.sendFile(__dirname + '/pages/login/index.html');
+});
+
 app.get('/resident', (req, res) => {
     const { name, password, type } = req.cookies;
     if (!name || !password || !type) {
-        res.cookie("name", "");
-        res.cookie("password", "");
-        res.cookie("type", "");
-        res.redirect("http://localhost:8080/login");
+        res.clearCookie('name');
+        res.clearCookie('password');
+        res.clearCookie('type');
+        res.redirect("http://localhost:8080/user/login");
+    } else if (type != "resident") {
+        res.redirect("http://localhost:8080/");
     } else {
-        res.sendFile('./pages/resident/index.html');
+        res.sendFile(__dirname + '/pages/resident/index.html');
     }
 });
 
 app.get('/manager', (req, res) => {
     const { name, password, type } = req.cookies;
     if (!name || !password || !type) {
-        res.cookie("name", "");
-        res.cookie("password", "");
-        res.cookie("type", "");
-        res.redirect("http://localhost:8080/login");
+        res.clearCookie('name');
+        res.clearCookie('password');
+        res.clearCookie('type');
+        res.redirect("http://localhost:8080/user/login");
+    } else if (type != "manager") {
+        res.redirect("http://localhost:8080/");
     } else {
-        res.sendFile('./pages/manager/index.html');
+        res.sendFile(__dirname + '/pages/manager/index.html');
     }
 });
 
 app.get('/corporation', (req, res) => {
     const { name, password, type } = req.cookies;
     if (!name || !password || !type) {
-        res.cookie("name", "");
-        res.cookie("password", "");
-        res.cookie("type", "");
-        res.redirect("http://localhost:8080/login");
+        res.clearCookie('name');
+        res.clearCookie('password');
+        res.clearCookie('type');
+        res.redirect("http://localhost:8080/user/login");
+    } else if (type != "corporation") {
+        res.redirect("http://localhost:8080/");
     } else {
-        res.sendFile('./pages/corporation/index.html');
+        res.sendFile(__dirname + '/pages/corporation/index.html');
     }
 });
 
-app.get('/resource/:path', (req, res) => {
-    const { path } = req.params;
-    try {
-        res.sendFile(`./pages/${path}`);
-    } catch (e) {
-        console.log(e);
-    }
+app.get('/resource/:dir/:filename', (req, res) => {
+    const { dir, filename } = req.params;
+    res.sendFile(__dirname + `/pages/${dir}/${filename}`);
 });

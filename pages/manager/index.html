@@ -8,15 +8,17 @@
     <title>Manager Page | Alohomora</title>
 
     <link rel="icon" href="../assets/icon.png">
-    <link rel="stylesheet" href="http://locahost:8080/resource/resident/style.css">
+    <link rel="stylesheet" href="http://localhost:8080/resource/manager/style.css">
     <link rel="stylesheet" href="./style.css">
+
+    <script src="http://localhost:8080/resource/manager/script.js"></script>
 </head>
 
 <body>
     <div id="app">
         <div id="navigation">
             <div class="logo">
-                <img src="./assets/img/logo.png" alt="">
+                <img src="http://localhost:8080/resource/assets/logobutdark.png" alt="">
             </div>
             <div class="navTitle">
                 <p>NAVIGATION</p>
@@ -87,7 +89,7 @@
                     </div>
                     <p>Dark Mode</p>
                 </div>
-                <div class="navItem">
+                <div class="navItem" onclick="logout();">
                     <div class="left">
                         <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -108,7 +110,7 @@
                 <h1>Assign Collections</h1>
                 <p>As of October, 2022</p>
             </div>
-            <table width="95%">
+            <table id="collections-table" width="95%">
                 <tr id="one">
                     <th>Title</th>
                     <th>Location</th>
@@ -120,22 +122,6 @@
                     <th style="width: 0px;">Assign to?</th>
                 </tr>
                 <!-- <% for(var i = 0; i < e.length; i++){ %> -->
-                <tr>
-                    <td> Banana Peels </td>
-                    <td> 48, Connaught Street, Kolkata</td>
-                    <td> Biodegradable </td>
-                    <td> </td>
-                    <td> 29/8/22 </td>
-                    <td> 3 kg</td>
-                    <td>Saptarshi</td>
-                    <td>
-                        <form  style="display: flex; flex-flow: row nowrap;"  action="" method="post">
-                            <input type="text" name="" id="">
-                            <button class="button-view">Send</button>
-                        </form>
-                    </td>
-                    <!-- <td> <a href="/" class="button-view">View</a></td> -->
-                </tr>
                 <!-- <% } %> -->
             </table>
         </div>
@@ -149,19 +135,11 @@
                 <div class="community-box">
                     <div class="community-field" id="total-collections">
                         <div class="community-field-key">Total Collections</div>
-                        <div class="community-field-value">170000</div>
+                        <div class="community-field-value" id="total-collections-value">170000</div>
                     </div>
                     <div class="community-field" id="total-waste">
                         <div class="community-field-key">Total Waste Collected</div>
-                        <div class="community-field-value">43003<span>kg</span></div>
-                    </div>
-                    <div class="community-field" id="your-collections">
-                        <div class="community-field-key">Your Collections</div>
-                        <div class="community-field-value">3330</div>
-                    </div>
-                    <div class="community-field" id="your-waste">
-                        <div class="community-field-key">Waste You Collected</div>
-                        <div class="community-field-value">1300<span>kg</span></div>
+                        <div class="community-field-value" id="total-weight-value">43003<span>kg</span></div>
                     </div>
                 </div>
             </div>

@@ -18,7 +18,7 @@
                     "id": 1,
                     "location": "Mirzapur",
                     "type": "Biodegradable",
-                    "weight": "0.6",
+                    "weight": 6,
                     "date": "22-10-2022",
                     "applicant": "Saptarshi",
                     "assigned": true,
@@ -26,16 +26,16 @@
                     "completed": true
                 },
                 {
-                    "title": "Banana Peels",
-                    "id": 1,
-                    "location": "Mirzapur",
+                    "title": "Sugarcane",
+                    "id": 2,
+                    "location": "Kolkata",
                     "type": "Biodegradable",
-                    "weight": "0.6",
+                    "weight": 8,
                     "date": "22-10-2022",
                     "applicant": "Saptarshi",
                     "assigned": true,
                     "corporation": "Shuvam",
-                    "completed": false
+                    "completed": true
                 }
             ]
         }
@@ -50,7 +50,7 @@
                     "id": 1,
                     "location": "Mirzapur",
                     "type": "Biodegradable",
-                    "weight": "0.6",
+                    "weight": 6,
                     "date": "22-10-2022",
                     "applicant": "Saptarshi",
                     "assigned": true,
@@ -62,8 +62,19 @@
                     "id": 2,
                     "location": "Kolkata",
                     "type": "Biodegradable",
-                    "weight": "0.8",
+                    "weight": 8,
                     "date": "22-10-2022",
+                    "applicant": "Saptarshi",
+                    "assigned": true,
+                    "corporation": "Shuvam",
+                    "completed": true
+                },
+                {
+                    "title": "something",
+                    "id": 3,
+                    "location": "ok",
+                    "type": "biodegradable",
+                    "weight": "12",
                     "applicant": "Saptarshi",
                     "assigned": false,
                     "corporation": null,
@@ -76,6 +87,14 @@
     "Pritish": {
         "password": "Welcome123",
         "type": "corporation",
+        "data": {
+            "myEntries": [],
+            "assignedEntries": []
+        }
+    },
+    "Jake": {
+        "password": "66",
+        "type": "resident",
         "data": {
             "myEntries": [],
             "assignedEntries": []

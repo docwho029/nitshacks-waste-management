@@ -4,7 +4,7 @@
         "id": 1,
         "location": "Mirzapur",
         "type": "Biodegradable",
-        "weight": "0.6",
+        "weight": 6,
         "date": "22-10-2022",
         "applicant": "Saptarshi",
         "assigned": true,
@@ -16,11 +16,11 @@
         "id": 2,
         "location": "Kolkata",
         "type": "Biodegradable",
-        "weight": "0.8",
+        "weight": 8,
         "date": "22-10-2022",
         "applicant": "Saptarshi",
-        "assigned": false,
-        "corporation": null,
-        "completed": false
+        "assigned": true,
+        "corporation": "Shuvam",
+        "completed": true
     }
 ]
