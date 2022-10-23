@@ -22,5 +22,17 @@
         "assigned": true,
         "corporation": "Shuvam",
         "completed": true
+    },
+    {
+        "title": "Coconut Husks",
+        "id": 3,
+        "location": "Mirzapur",
+        "type": "Biodegradable",
+        "weight": "12",
+        "date": "23-9-2022",
+        "applicant": "Saptarshi",
+        "assigned": false,
+        "corporation": null,
+        "completed": false
     }
 ]

@@ -27,12 +27,12 @@ function getMyEntries(username) {
     });
 }
 
-function newEntry(title, location, nature, weight, date) {
+function newEntry(title, loc, nature, weight, date) {
     fetch("http://localhost:8080/entry", {
         method: 'POST',
         body: JSON.stringify({
             "title": title,
-            "location": location,
+            "location": loc,
             "nature": nature,
             "weight": weight,
             "date": date
@@ -100,23 +100,19 @@ function getCommunity() {
 
 function submit() {
     title = document.getElementById("title").value;
-    location = document.getElementById("location").value;
+    loc = document.getElementById("location").value;
     nature = document.getElementById("nature").value;
     weight = document.getElementById("weight").value;
-    date = Date.getDate() + '-' + Date.getMonth() + '-' + Date.getFullYear();
-    
-    document.getElementById("title").value = "";
-    document.getElementById("location").value = "";
-    document.getElementById("nature").value = "";
-    document.getElementById("weight").value = "";
+    dt = new Date();
+    date = dt.getDate() + '-' + dt.getMonth() + '-' + dt.getFullYear();
 
     row = document.createElement('tr');
     corp = "-";
     completed = "Not Collected!"
-    row.innerHTML = "<td> " + title + "</td><td> " + location + "</td><td> " + type + "</td><td> </td><td> " + date + "</td><td> " + weight + " kg</td><td> " + corp + "</td><td> " + completed + "</td>";
+    row.innerHTML = "<td> " + title + "</td><td> " + loc + "</td><td> " + nature + "</td><td> </td><td> " + date + "</td><td> " + weight + " kg</td><td> " + corp + "</td><td> " + completed + "</td>";
     document.getElementById("data-list").appendChild(row);
 
-    newEntry(title, location, nature, weight, date);
+    newEntry(title, loc, nature, weight, date);
 }
 
 getMyEntries("");
